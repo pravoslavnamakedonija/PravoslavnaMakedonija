@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Православна Македонија</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    color: #f5e6c8;
+    overflow-x: hidden;
+}
+
+/* GOLDEN ORTHODOX CHURCH BACKGROUND */
+.bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("https://bigorski.org.mk/wp-content/uploads/2020/10/bigorski-slider-panorama-768x364.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.55) contrast(1.15);
+    z-index: -3;
+}
+
+/* DARK OVERLAY */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0,0,0,0.35), rgba(0,0,0,0.95));
+    z-index: -2;
+}
+
+/* PARTICLES */
+.particle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: gold;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float 14s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 140px 20px 60px;
+}
+
+header h1 {
+    font-size: 4.3em;
+    color: gold;
+    text-shadow: 0 0 45px rgba(255,215,0,0.55);
+    letter-spacing: 3px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.85;
+}
+
+/* GLASS NAV */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 15px;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255,215,0,0.15);
+}
+
+nav a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255,215,0,0.12);
+    transform: scale(1.08);
+}
+
+nav a.active {
+    background: gold;
+    color: black;
+}
+
+/* SECTIONS */
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 90px 20px;
+
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1.1s ease;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* CARD */
+.card {
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,215,0,0.25);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 60px rgba(0,0,0,0.6);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 80px rgba(255,215,0,0.18);
+}
+
+h2 {
+    color: gold;
+}
+
+/* SOCIAL */
+.social-links a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 18px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    transform: scale(1.12);
+}
+
+.fb { background: #1877f2; }
+.ig { background: linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7); }
+.tt { background: #000; }
+
+footer {
+    text-align: center;
+    padding: 35px;
+    background: rgba(0,0,0,0.9);
+    border-top: 1px solid rgba(255,215,0,0.15);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-image"></div>
+<div class="overlay"></div>
+
+<header>
+    <h1>☦ Православна Македонија</h1>
+    <p>Вера • Традиција • Духовност</p>
+</header>
+
+<nav>
+    <a href="#faith">Вера</a>
+    <a href="#tradition">Традиција</a>
+    <a href="#churches">Цркви</a>
+    <a href="#contact">Контакт</a>
+</nav>
+
+<section id="faith">
+<div class="card">
+<h2>Православна Вера</h2>
+<p>Православието е пат на љубов, смирение и духовна светлина.</p>
+</div>
+</section>
+
+<section id="tradition">
+<div class="card">
+<h2>Традиција</h2>
+<p>Нашите празници и обичаи ја чуваат духовноста низ вековите.</p>
+</div>
+</section>
+
+<section id="churches">
+<div class="card">
+<h2>Цркви и Манастири</h2>
+<p>Свети места каде човекот наоѓа мир и вера.</p>
+</div>
+</section>
+
+<section id="contact">
+<div class="card">
+<h2>Контакт</h2>
+
+<div class="social-links">
+<a href="https://www.facebook.com/profile.php?id=61586012662411" class="fb"><i class="fab fa-facebook"></i> Facebook</a>
+<a href="https://www.instagram.com/pravoslavnamakedonija/" class="ig"><i class="fab fa-instagram"></i> Instagram</a>
+<a href="https://www.tiktok.com/@pravoslavnamakedonija" class="tt"><i class="fab fa-tiktok"></i> TikTok</a>
+<a href="https://www.youtube.com/@PravoslavnaMakedonija" class="tt"><i class="fab fa-youtube"></i> Youtube</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p>© 2026 Православна Македонија</p>
+<p>Dizajner:Filip Volkanovski</p>
+<p>Kreatori na stranicata:Filip Volkanovski,Pravoslavna Makedonija</p>
+</footer>
+
+<script>
+
+/* PARTICLES */
+for(let i=0;i<45;i++){
+    let p=document.createElement("div");
+    p.className="particle";
+    p.style.left=Math.random()*100+"vw";
+    p.style.animationDuration=(6+Math.random()*12)+"s";
+    document.body.appendChild(p);
+}
+
+/* FADE IN */
+const sections = document.querySelectorAll("section");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.12 });
+
+sections.forEach(s => observer.observe(s));
+
+/* ULTRA SMOOTH SCROLL */
+document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault();
+
+        const target = document.querySelector(link.getAttribute("href"));
+
+        const start = window.pageYOffset;
+        const end = target.offsetTop;
+        const distance = end - start;
+        const duration = 900;
+        let startTime = null;
+
+        function animate(currentTime){
+            if(startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+
+            const run = ease(timeElapsed, start, distance, duration);
+            window.scrollTo(0, run);
+
+            if(timeElapsed < duration) requestAnimationFrame(animate);
+        }
+
+        function ease(t, b, c, d){
+            t /= d/2;
+            if(t < 1) return c/2*t*t + b;
+            t--;
+            return -c/2 * (t*(t-2) - 1) + b;
+        }
+
+        requestAnimationFrame(animate);
+    });
+});
+
+/* ACTIVE MENU */
+window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(sec => {
+        if(pageYOffset >= sec.offsetTop - 300){
+            current = sec.id;
+        }
+    });
+
+    document.querySelectorAll("nav a").forEach(a => {
+        a.classList.remove("active");
+        if(a.getAttribute("href") === "#" + current){
+            a.classList.add("active");
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
