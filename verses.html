@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="UTF-8">
+<title>Православен Библиски Стих</title>
+
+<style>
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    url("https://th.bing.com/th/id/R.2fcb7fe260eeab1c7180550b4b565af9?rik=gjebTWjqFXXzww&riu=http%3a%2f%2fwww.oldprilep.com%2fwp-content%2fuploads%2f2013%2f04%2fspt01-22.jpg&ehk=9pKaU51V2q%2bZspYhTeILtx6bVeqBin%2fhZP6GyXfZ56Y%3d&risl=&pid=ImgRaw&r=0");
+    background-size: cover;
+    background-position: center;
+}
+
+/* HOME BUTTON */
+.home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, gold, #fff3b0);
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+.home-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(255,215,0,0.5);
+}
+
+.home-btn:active {
+  transform: scale(0.95);
+}
+
+/* CONTAINER */
+#container {
+    width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+#verse {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#reference {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+#author {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background: #6b4f2c;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #8a6a3d;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HOME BUTTON -->
+<a href="index.html" class="home-btn">🏠 Почетна</a>
+
+<!-- CONTAINER -->
+<div id="container">
+
+    <h2>📖 Случаен Библиски Стих</h2>
+
+    <div id="verse">Кликни за да добиеш стих</div>
+    <div id="reference"></div>
+    <div id="author"></div>
+
+    <button onclick="generateVerse()">🔄 Нов стих</button>
+
+</div>
+
+<script>
+
+const verses = [
+{ text: "Јас сум патот, вистината и животот.", ref: "Јован 14:6", author: "Исус Христос" },
+{ text: "Блажени се чистите по срце.", ref: "Матеј 5:8", author: "Исус Христос" },
+{ text: "Господ е пастир мој.", ref: "Псалм 23:1", author: "Цар Давид" },
+{ text: "Љубовта долго трпи.", ref: "1 Коринтјаните 13:4", author: "Апостол Павле" },
+{ text: "Молете се непрестајно.", ref: "1 Солунјаните 5:17", author: "Апостол Павле" },
+{ text: "Со Бога сè е можно.", ref: "Матеј 19:26", author: "Исус Христос" },
+{ text: "Не судете.", ref: "Матеј 7:1", author: "Исус Христос" },
+{ text: "Бог е љубов.", ref: "1 Јованово 4:8", author: "Апостол Јован" },
+{ text: "Верата без дела е мртва.", ref: "Јаков 2:26", author: "Апостол Јаков" }
+];
+
+function generateVerse(){
+    let random = Math.floor(Math.random() * verses.length);
+    let v = verses[random];
+
+    document.getElementById("verse").innerText = "“" + v.text + "”";
+    document.getElementById("reference").innerText = v.ref;
+    document.getElementById("author").innerText = "— " + v.author;
+}
+
+generateVerse();
+
+</script>
+
+</body>
+</html>
