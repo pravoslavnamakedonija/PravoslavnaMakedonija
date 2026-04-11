@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+<meta charset="UTF-8">
+<title>Православен Библиски Стих</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    url("https://th.bing.com/th/id/R.c70b7b4107be13e03f7242c55e5330f3?rik=EkxcPSHICsUtiw&riu=http%3a%2f%2fwww.tresorsdumonde.fr%2fwp-content%2fuploads%2f2016%2f10%2fMonastere-de-Zrze1.jpg&ehk=Vwa7UFpRASCs8zjIu%2b2tIvBmBOf1VK8ASi7ITYE13U8%3d&risl=&pid=ImgRaw&r=0");
+    background-size: cover;
+    background-position: center;
+}
+
+#container {
+    width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+}
+
+#verse {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#reference {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+#author {
+    font-style: italic;
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background: #6b4f2c;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #8a6a3d;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+    <h2>📖 Случаен Библиски Стих</h2>
+
+    <div id="verse">Кликни за да добиеш стих</div>
+    <div id="reference"></div>
+    <div id="author"></div>
+
+    <button onclick="generateVerse()">🔄 Нов стих</button>
+</div>
+
+<script>
+
+// 📖 БИБЛИСКИ СТИХОВИ (православни - македонски)
+const verses = [
+
+{
+text: "Јас сум патот, вистината и животот.",
+ref: "Евангелие според Јован 14:6",
+author: "Исус Христос"
+},
+{
+text: "Блажени се чистите по срце, зашто тие ќе Го видат Бога.",
+ref: "Матеј 5:8",
+author: "Исус Христос"
+},
+{
+text: "Господ е пастир мој, ништо нема да ми недостига.",
+ref: "Псалм 23:1",
+author: "Цар Давид"
+},
+{
+text: "Љубовта долго трпи и е милостива.",
+ref: "1 Коринтјаните 13:4",
+author: "Апостол Павле"
+},
+{
+text: "Молете се непрестајно.",
+ref: "1 Солунјаните 5:17",
+author: "Апостол Павле"
+},
+{
+text: "Со Бога сè е можно.",
+ref: "Матеј 19:26",
+author: "Исус Христос"
+},
+{
+text: "Не судете, за да не бидете судени.",
+ref: "Матеј 7:1",
+author: "Исус Христос"
+},
+{
+text: "Господи, помилуј ме.",
+ref: "Лука 18:13",
+author: "Митарот (парабола)"
+},
+{
+text: "Бог е љубов.",
+ref: "1 Јованово 4:8",
+author: "Апостол Јован"
+},
+{
+text: "Верата без дела е мртва.",
+ref: "Јаков 2:26",
+author: "Апостол Јаков"
+}
+
+];
+
+// 🔄 RANDOM GENERATOR
+function generateVerse(){
+    let random = Math.floor(Math.random() * verses.length);
+    let v = verses[random];
+
+    document.getElementById("verse").innerText = "“" + v.text + "”";
+    document.getElementById("reference").innerText = v.ref;
+    document.getElementById("author").innerText = "— " + v.author;
+}
+
+// auto load
+generateVerse();
+
+</script>
+
+</body>
+</html>
