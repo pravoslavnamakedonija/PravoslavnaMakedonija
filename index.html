@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+    
+    
 @keyframes bgBreathe {
   0% {
     transform: scale(1.05);
@@ -44,14 +46,15 @@
 }
 
 .cursor-glow {
-  position: fixed;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 60%);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9998;
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(255,215,0,0.25), transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9998;
+    filter: blur(2px);
 }
 
 @media (max-width: 768px) {
@@ -106,26 +109,34 @@
     box-shadow: 0 0 10px gold;
 }
 
-.holy-btn {
-    position: relative;
-    padding: 14px 22px;
-    border: none;
-    border-radius: 14px;
+.holy-btn1,
+.holy-btn2,
+.holy-btn3,
+.holy-btn4,
+.holy-btn5 {
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,215,0,0.3);
+    background: rgba(0,0,0,0.4);
+    color: gold;
+    backdrop-filter: blur(10px);
+
     cursor: pointer;
     font-weight: bold;
-    font-size: 16px;
-    color: #111;
 
-    background: linear-gradient(135deg, #d4af37, #fff3b0, #d4af37);
-    box-shadow: 0 0 20px rgba(212,175,55,0.5);
-
-    transition: all 0.3s ease;
+    transition: 0.3s;
+    position: relative;
     overflow: hidden;
+}
 
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin: 6px; /* 👈 да не се лепат */
+.holy-btn1:hover,
+.holy-btn2:hover,
+.holy-btn3:hover,
+.holy-btn4:hover,
+.holy-btn5:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 0 25px rgba(255,215,0,0.5);
+    background: rgba(255,215,0,0.1);
 }
 
 /* ICON animation */
@@ -297,6 +308,14 @@ body {
     background-position: center;
     filter: brightness(0.55) contrast(1.15);
     z-index: -3;
+     
+  transform: scale(1.1);
+  transition: transform 0.2s linear;
+}
+
+.overlay {
+  background: radial-gradient(circle at center, rgba(0,0,0,0.2), rgba(0,0,0,0.95));
+}
 }
 
 /* DARK OVERLAY */
@@ -378,13 +397,40 @@ nav a.active {
 
 /* SECTIONS */
 section {
-  filter: blur(10px);
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
+/* кога се појавува */
 section.show {
-  filter: blur(0);
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
+/* shine line ефект */
+section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 215, 0, 0.08),
+    transparent
+  );
+
+  transition: 0.8s;
+}
+
+section.show::after {
+  left: 100%;
+}
 /* CARD */
 .card {
     background: rgba(0,0,0,0.55);
@@ -447,21 +493,21 @@ footer {
 </header>
 
 <nav>
-    <button class="holy-btn">
+    <button class="holy-btn1">
   <span>✝</span> Вера
 </button>
-<button id="btn-tradition" class="holy-btn">
+<button id="btn-tradition" class="holy-btn2">
   <span>🏺</span> Традиција
 </button>
 
-<button id="btn-churches" class="holy-btn">
+<button id="btn-churches" class="holy-btn3">
   <span>⛪</span> Цркви
 </button>
 
-<button onclick="openVerses()" class="holy-btn">
+<button onclick="openVerses()" class="holy-btn4">
 <span>📖</span> Библиски стихови
 </button>
-<button id="btn-contact" class="holy-btn">
+<button id="btn-contact" class="holy-btn5">
   <span>📩</span> Контакт
 </button>
 
@@ -511,12 +557,12 @@ footer {
 <script>
 
 /* PARTICLES */
-for(let i=0;i<45;i++){
-    let p=document.createElement("div");
-    p.className="particle";
-    p.style.left=Math.random()*100+"vw";
-    p.style.animationDuration=(6+Math.random()*12)+"s";
-    document.body.appendChild(p);
+for(let i=0;i<30;i++){
+    let l=document.createElement("div");
+    l.className="light";
+    l.style.left=Math.random()*100+"vw";
+    l.style.animationDuration=(5+Math.random()*10)+"s";
+    document.body.appendChild(l);
 }
 /* PARALLAX EFFECT */
 window.addEventListener("scroll", () => {
@@ -614,6 +660,7 @@ document.addEventListener("click", (e) => {
   spark.style.top = e.clientY + "px";
 
   setTimeout(() => spark.remove(), 600);
+  
 });
 
 </script>
